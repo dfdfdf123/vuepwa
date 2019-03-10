@@ -8,6 +8,28 @@
       autocomplete="off"
       type="text"
     >
+    <v-select
+      v-if="type ==='dropdown'"
+      class="input-dropdown"
+      @input="customInput"
+      :options="options"
+    />
+
+    <div
+      v-if="type==='radio'"
+      v-for='option in options'
+      :key='option.label'
+    >
+      <input
+        type="radio"
+        class="radio"
+        :id="option.label"
+        :value="option.value"
+        :checked="value === option.value"
+        @input="customInput($event.target.value)"
+      >
+      <label :for="option.label">{{option.label}}</label>
+    </div>
     <transition
       name="alert-in"
       enter-active-class="animated flipInX"
@@ -20,6 +42,7 @@
         {{ validationError }}
       </p>
     </transition>
+
   </div>
 </template>
 <script>
@@ -32,6 +55,8 @@ export default {
     type: String,
     label: String,
     validation: String,
+    options: Array,
+    value: [String, Object, Boolean]
   },
   data() {
     return {
