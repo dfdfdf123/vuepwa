@@ -83,4 +83,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="../assets/styles/InputForm.scss"/>
+<style lang="scss" src="../assets/styles/Input.scss"/>
