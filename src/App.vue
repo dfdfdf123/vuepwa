@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <main></main>
+    <main>
+      <template>
+        <Panel class="calculator-panel" headline="Income Tax Calculator">
+          <template>
+            <span>content goes here.<span/>
+          </template>
+        </Panel>
+      </template>
+    </main>
   </div>
 </template>
 
